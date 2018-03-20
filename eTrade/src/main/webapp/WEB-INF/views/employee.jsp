@@ -70,7 +70,7 @@
         <!-- page start-->
         <div class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="/employees/new">
+                <a class="btn btn-success" href="<spring:url value="/users/add" />" >
                     <i class="fa fa-plus-circle"></i>
                     New employee
                 </a>
@@ -101,9 +101,9 @@
                     <td>${user.ranking}</td>
                     <td>
                       <div class="btn-group">
-                        <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
-                        <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
-                        <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+             
+                <a href="<spring:url value="/users/${user.id}" />" class="btn btn-primary  btn-mini  "> <i class="icon_plus_alt2"></i> </a>
+               <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
                       </div>
                     </td>
                   </tr>

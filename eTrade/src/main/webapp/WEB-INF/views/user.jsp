@@ -30,7 +30,7 @@
  						<div class="caption">
 							<h3>First Name - ${user.firstName}</h3>
 							<h3>Last Name -  ${user.lastName}</h3>
-							<p>Email -         ${user.email}</p>
+							<p>Email - ${user.email}</p>
  
 						</div>
 					</div>
