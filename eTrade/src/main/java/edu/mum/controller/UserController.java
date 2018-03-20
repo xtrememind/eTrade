@@ -21,10 +21,11 @@ public class UserController {
 	@Autowired
 	private UserService  userService;
 
-	@RequestMapping
+	@RequestMapping("")
 	public String listUsers(Model model) {
-		model.addAttribute("users", userService.findAll());
-		return "users";
+		System.out.println("here***");
+		//model.addAttribute("users", userService.findAll());
+		return "employee";
 	}
 	
   	@RequestMapping("/{id}")
