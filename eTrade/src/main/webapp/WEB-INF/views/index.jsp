@@ -40,7 +40,7 @@
                 <a href="#"><i class="icon_profile"></i> My Profile</a>
               </li>
               <li>
-                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                <a href='<spring:url value="/logout"/>'><i class="icon_key_alt"></i> Log Out</a>
               </li>
             </ul>
           </li>

@@ -19,14 +19,14 @@
         <p class="login-img"><i class="icon_lock_alt"></i></p>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" name="userName" placeholder="Username" autofocus>
+          <input type="text" class="form-control" name="userName" placeholder="Username" value='${cookie.get("userName").value}' autofocus>
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_key_alt"></i></span>
           <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
         <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" checked="checked" name="remember"> Remember me
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
             <c:if test="${not empty error}">

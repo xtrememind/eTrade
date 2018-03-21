@@ -31,4 +31,14 @@
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 		<property name="validationMessageSource" ref="messageSource" />
 	</bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+	    		<mvc:mapping path="/**"/>
+	    		<mvc:exclude-mapping path="/login"/>
+	    		<mvc:exclude-mapping path="/postLogin"/>
+	    		<mvc:exclude-mapping path="/loginfailed"/>
+	    		<mvc:exclude-mapping path="/logout"/>
+	    		<bean id="securityInterceptor" class="edu.mum.interceptor.SecurityInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
   </beans>
