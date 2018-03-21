@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -24,13 +26,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Client implements java.io.Serializable {
 
 	private Integer id;
-    
+	@Size(min=4, max = 19, message= "{Size.name}")
 	private String name;
     
 	private Portfolio portfolio;
- 
+	
 	private CashAccount cashAccount;
 
+	
 	private UserCredentials userCredentials;
 	
 	private List<Order> boughtOrders = new ArrayList<Order>();

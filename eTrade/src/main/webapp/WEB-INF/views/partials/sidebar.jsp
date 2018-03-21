@@ -18,7 +18,7 @@
                       </a>
           </li>
           <li class="${param.selected == 'customer' ? 'active' : '' }">
-            <a class="" href='<spring:url value="customers"/>'>
+            <a class="" href='<spring:url value="clients"/>'>
                   <i class="icon_group"></i>
                   <span>Customers</span>
             </a>
