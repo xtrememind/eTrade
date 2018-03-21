@@ -12,16 +12,12 @@ public class SecurityInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("intercepting.");
 		HttpSession session = request.getSession(false);
-		System.out.println("session == "+session );
 		if(session==null || session.getAttribute("userId")==null) {
-			
-			System.out.println("should redirect to login");
+			response.setContentType("text/css");
 			response.sendRedirect("/eTrade/login");
 			return false;
 		}
-		System.out.println("success");
 		return true;
 	}
 
