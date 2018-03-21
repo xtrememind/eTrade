@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,20 +23,19 @@ public class StockController {
 	@Autowired
 	private StockService stockService;
  
- 	@RequestMapping({"","/all"})
+ 	@RequestMapping("")
 	public String list(Model model) {
 		model.addAttribute("stocks", stockService.findAll());
 		return "stocks";
 	}
 	
- 	@RequestMapping("/stock")
-	public String getStockById(Model model, @RequestParam("id") Integer id) {
+ 	@RequestMapping("/{id}")
+	public String getStockById(@PathVariable("id") Integer id, Model model) {
 
 		Stock stock = stockService.findOne(id);
 		model.addAttribute("stock", stock);
 		return "stock";
 	}
-
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String getAddNewStockForm(@ModelAttribute("newStock") Stock newStock) {
