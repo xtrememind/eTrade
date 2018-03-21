@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id", scope = Portfolio.class)
 public class Portfolio implements java.io.Serializable {
 
 	private Integer id;
@@ -33,7 +33,6 @@ public class Portfolio implements java.io.Serializable {
     
 	private List<PortfolioBalance> portfolioBalances = new ArrayList<PortfolioBalance>();
     
-	private List<PortfolioTransaction> portfolioTransactions = new ArrayList<PortfolioTransaction>();
 
 	public Portfolio() {
 	}
@@ -78,12 +77,5 @@ public class Portfolio implements java.io.Serializable {
 		this.portfolioBalances = portfolioBalances;
 	}
 
-	public List<PortfolioTransaction> getPortfolioTransactions() {
-		return portfolioTransactions;
-	}
-
-	public void setPortfolioTransactions(List<PortfolioTransaction> portfolioTransactions) {
-		this.portfolioTransactions = portfolioTransactions;
-	}
 
 }

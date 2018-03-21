@@ -27,7 +27,6 @@ public class CashAccount implements java.io.Serializable {
     
 	private Client client;
 
-	private List<CashTransaction> cashTransactions = new ArrayList<CashTransaction>();
 
 	public CashAccount() {
 	}
@@ -54,14 +53,6 @@ public class CashAccount implements java.io.Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
-	}
-
-	public List<CashTransaction> getCashTransactions() {
-		return cashTransactions;
-	}
-
-	public void setCashTransactions(List<CashTransaction> cashTransactions) {
-		this.cashTransactions = cashTransactions;
 	}
 
 }

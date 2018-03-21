@@ -31,7 +31,7 @@ public class HomeController {
 		int numberOfUsers = userService.findAll().size();
 		int numberOfStocks = stockService.findAll().size();
 		int numberOfOrders = 0;//orderService.findAll().size();
-		int numberOfCustomers = 0;//= customerService.findAll().size();
+		int numberOfCustomers =  customerService.findAll().size();
 		
 		model.addAttribute("numberOfUsers", numberOfUsers);
 		model.addAttribute("numberOfStocks", numberOfStocks);

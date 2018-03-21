@@ -22,7 +22,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id", scope = Client.class)
 public class Client implements java.io.Serializable {
 
 	private Integer id;
@@ -36,9 +36,6 @@ public class Client implements java.io.Serializable {
 	
 	private UserCredentials userCredentials;
 	
-	private List<Order> boughtOrders = new ArrayList<Order>();
-	
-	private List<Order> SoldOrders = new ArrayList<Order>();
 	
 	public Client() {
 	}
@@ -83,20 +80,5 @@ public class Client implements java.io.Serializable {
 		this.userCredentials = userCredentials;
 	}
 
-	public List<Order> getBoughtOrders() {
-		return boughtOrders;
-	}
-
-	public void setBoughtOrders(List<Order> boughtOrders) {
-		this.boughtOrders = boughtOrders;
-	}
-
-	public List<Order> getSoldOrders() {
-		return SoldOrders;
-	}
-
-	public void setSoldOrders(List<Order> soldOrders) {
-		SoldOrders = soldOrders;
-	}
 
 }
