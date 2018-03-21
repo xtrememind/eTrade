@@ -13,44 +13,9 @@
   <section id="container" class="">
     <!--header start-->
 
-    <header class="header dark-bg">
-      <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-      </div>
-
-      <!--logo start-->
-      <a href="index.html" class="logo">Best <span class="lite">Trade</span></a>
-      <!--logo end-->
-
-      <div class="top-nav notification-row">
-        <!-- notificatoin dropdown start-->
-        <ul class="nav pull-right top-menu">
-          <!-- user login dropdown start-->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="<spring:url value="/resource/img/man.png"/>">
-                            </span>
-                            <span class="username">Jenifer Smith</span>
-                            <b class="caret"></b>
-                        </a>
-            <ul class="dropdown-menu extended logout">
-              <div class="log-arrow-up"></div>
-              <li class="eborder-top">
-                <a href="#"><i class="icon_profile"></i> My Profile</a>
-              </li>
-              <li>
-                <a href='<spring:url value="/logout"/>'><i class="icon_key_alt"></i> Log Out</a>
-              </li>
-            </ul>
-          </li>
-          <!-- user login dropdown end -->
-        </ul>
-        <!-- notificatoin dropdown end-->
-      </div>
-    </header>
+    
     <!--header end-->
-
+		<jsp:include page="partials/header.jsp"></jsp:include>
     <!--sidebar start-->
 	<jsp:include page="partials/sidebar.jsp">
         <jsp:param name="selected" value="home" />
@@ -74,7 +39,7 @@
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="info-box green-bg">
               <i class="fa fa-users"></i>
-              <div class="count">137</div>
+              <div class="count">${numberOfCustomers }</div>
               <div class="title">Customers</div>
             </div>
           </div>
@@ -82,7 +47,7 @@
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="info-box blue-bg">
               <i class="fa fa-shopping-cart"></i>
-              <div class="count">9</div>
+              <div class="count">${numberOfStocks }</div>
               <div class="title">Stocks</div>
             </div>
           </div>
@@ -90,7 +55,7 @@
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="info-box red-bg">
               <i class="fa fa-exchange"></i>
-              <div class="count">143</div>
+              <div class="count">${numberOfOrders }</div>
               <div class="title">Orders</div>
             </div>
           </div>
@@ -98,7 +63,7 @@
           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
             <div class="info-box yellow-bg">
               <i class="fa fa-briefcase"></i>
-              <div class="count">9</div>
+              <div class="count">${numberOfUsers }</div>
               <div class="title">Traders</div>
             </div>
           </div>

@@ -23,7 +23,6 @@ public class UserController {
 
 	@RequestMapping("")
 	public String listUsers(Model model) {
-		System.out.println("here***");
 		model.addAttribute("users", userService.findAll());
 		return "employee";
 	}
