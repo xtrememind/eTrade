@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,21 +14,26 @@
 
   <div class="container">
 
-    <form class="login-form" action="index.html">
+    <form action='<spring:url value="/postLogin"/>' class="login-form"  method="POST">
       <div class="login-wrap">
         <p class="login-img"><i class="icon_lock_alt"></i></p>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" placeholder="Username" autofocus>
+          <input type="text" class="form-control" name="userName" placeholder="Username" autofocus>
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
         <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
+            <c:if test="${not empty error}">
+					<div class="alert alert-danger">
+						<spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br />
+					</div>
+				</c:if>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
         
       </div>

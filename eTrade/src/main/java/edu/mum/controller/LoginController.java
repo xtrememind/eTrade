@@ -20,20 +20,24 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
+		System.out.println("logiiiiin method");
  		return "login";
 	}
  
 	
 	@RequestMapping(value="/postLogin", method = RequestMethod.POST)
 	public String PostLogin(UserCredentials credentials, Model model) {
-
+		
+		
 		UserCredentials validCredentials = credentialsService.findOne(credentials.getUserName());
-		  
+		
 		if (validCredentials == null)
-			return  "login";
+		{
+			model.addAttribute("error", "error") ;
+			return  "login";}
  
 		model.addAttribute("user", validCredentials.getUser());
- 		return "redirect:/welcome";
+ 		return "redirect:/index";
 	}
  
 	@RequestMapping(value="/loginfailed", method = RequestMethod.GET)
