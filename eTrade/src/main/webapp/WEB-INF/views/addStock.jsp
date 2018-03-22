@@ -12,45 +12,9 @@
 <body>
   <!-- container section start -->
   <section id="container" class="">
-       <!--header start-->
-
-       <header class="header dark-bg">
-        <div class="toggle-nav">
-          <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-        </div>
-  
-        <!--logo start-->
-        <a href="index.html" class="logo">Best <span class="lite">Trade</span></a>
-        <!--logo end-->
-  
-        <div class="top-nav notification-row">
-          <!-- notificatoin dropdown start-->
-          <ul class="nav pull-right top-menu">
-            <!-- user login dropdown start-->
-            <li class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                              <span class="profile-ava">
-                                  <img alt="" src="img/man.png">
-                              </span>
-                              <span class="username">user</span>
-                              <b class="caret"></b>
-                          </a>
-              <ul class="dropdown-menu extended logout">
-                <div class="log-arrow-up"></div>
-                <li class="eborder-top">
-                  <a href="#"><i class="icon_profile"></i> My Profile</a>
-                </li>
-                <li>
-                  <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-                </li>
-              </ul>
-            </li>
-            <!-- user login dropdown end -->
-          </ul>
-          <!-- notificatoin dropdown end-->
-        </div>
-      </header>
-      <!--header end-->
+    <!--header start-->
+    <jsp:include page="partials/header.jsp"></jsp:include>
+    <!--header end-->
     <!--sidebar start-->
 	<jsp:include page="partials/sidebar.jsp">
         <jsp:param name="selected" value="employee" />
@@ -63,43 +27,49 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa fa-bars"></i>Add New Stock</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
               <li><i class="fa fa-bars"></i>Add New Stock</li>
             </ol>
           </div>
         </div>
         <!-- page start-->
- 		<form:form  modelAttribute="newStock" class="form-horizontal" >
-			<fieldset>
-				<legend>Add new stock</legend>
-
+        <div class="row">
+        	<div class="col-lg-3"></div>
+        	<div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+              	Add new stock
+              </header>
+              <div class="panel-body" style="padding: 30px;">
+              	<form:form  modelAttribute="newStock" class="form-horizontal" >
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
  
  				<div class="form-group">
-					<label class="control-label col-lg-2" for="code"><spring:message code="addStock.form.code.label"/></label>
-					<div class="col-lg-10">
-						<form:input id="code" path="code" type="text" class="form:input-large"/>
+					<label for="code"><spring:message code="addStock.form.code.label"/></label>
+					
+						<form:input id="code" path="code" type="text" class="form-control"/>
 						<form:errors path="code" cssClass="text-danger"/>
-					</div>
+					
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="name"><spring:message code="addStock.form.name.label"/></label>
-					<div class="col-lg-10">
-						<form:input id="name" path="name" type="text" class="form:input-large"/>
+					<label for="name"><spring:message code="addStock.form.name.label"/></label>
+					
+						<form:input id="name" path="name" type="text" class="form-control"/>
 						<form:errors path="name" cssClass="text-danger"/>
-					</div>
+					
 				</div>
-
 
 				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
-					</div>
+						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Save"/>		
 				</div>
-				
-			</fieldset>
 		</form:form>
+		</div>
+		
+		</section>
+		</div>
+		
+		</div>
         <!-- page end-->
       </section>
     </section>
