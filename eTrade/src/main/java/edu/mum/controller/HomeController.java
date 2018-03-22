@@ -40,5 +40,10 @@ public class HomeController {
 		
 		return "index";
 	}
+	
+	@RequestMapping("/access403")
+	public String access403() {
+		return "notAuthorized";
+	}
  
 }
