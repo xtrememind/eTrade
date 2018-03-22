@@ -8,19 +8,15 @@
  "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <jsp:include page="partials/head.jsp"></jsp:include>
     <title>404 error</title>
   </head>
   <body>
+  <div class="page-404">
+    <p class="text-404">404</p>
 
-<center>
-
-<img src="<spring:url value="/resource/images/Puppet404.gif"  htmlEscape="true" />" alt="Page not found  JSP!!!"  />
-
-<H2>${requestScope['javax.servlet.error.message']}</H2>
-
- <p><button type=button onclick=window.location.href="<spring:url value="/welcome" />">Home</button></p>
-
-</center> 
+    <h2>Aww Snap!</h2>
+    <p>Something went wrong or that page doesn’t exist yet. <br><a href='<spring:url value="/index"/>'>Return Home</a></p>
+  </div>
   </body>
 </html>
