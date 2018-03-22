@@ -26,6 +26,7 @@
             <h3 class="page-header"><i class="fa fa fa-bars"></i>Add New Order</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
+              <li><i class="fa fa-bars"></i><a href="<spring:url value="/orders"/>">Orders</a></li>
               <li><i class="fa fa-bars"></i>Add New Order</li>
             </ol>
           </div>
