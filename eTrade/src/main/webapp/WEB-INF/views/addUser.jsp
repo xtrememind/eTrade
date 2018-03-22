@@ -1,107 +1,120 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-<html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Products</title>
+  <jsp:include page="partials/head.jsp"></jsp:include>
+  <title>Add New Employee</title>
 </head>
 <body>
-	<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Valued Users</h1>
-				<p>Add a new one<p>
-			</div>
-		</div>
-	</section>
-	<section class="container">
-		<form:form  modelAttribute="newUser" class="form-horizontal"  >
-			<fieldset>
-				<legend>Add new user</legend>
+  <!-- container section start -->
+  <section id="container" class="">
+    <!--header start-->
+    <jsp:include page="partials/header.jsp"></jsp:include>
+    <!--header end-->
+    <!--sidebar start-->
+	<jsp:include page="partials/sidebar.jsp">
+        <jsp:param name="selected" value="employee" />
+    </jsp:include>
+    <!--sidebar end-->
 
-				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa fa-bars"></i>
+            <c:if test="${userToUpdate.firstName == null}">
+                Add New User
+               </c:if>
+               <c:if test="${userToUpdate.firstName != null}">
+                User Details
+               </c:if>
+            </h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
+               <li><i class="fa fa-bars"></i><a href="<spring:url value="/users"/>">Employees</a></li>
+               <li><i class="fa fa-bars"></i>
+               <c:if test="${userToUpdate.firstName == null}">
+                Add New User
+               </c:if>
+               <c:if test="${userToUpdate.firstName != null}">
+                User Details
+               </c:if>
+               </li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+        <div class="row">
+        	<div class="col-lg-3"></div>
+        	<div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+              <c:if test="${userToUpdate.firstName == null}">
+                Add New User
+               </c:if>
+               <c:if test="${userToUpdate.firstName != null}">
+                User Details
+               </c:if>
+              </header>
+              <div class="panel-body" style="padding: 30px;">
+                <form:form  modelAttribute="newUser" class="form-horizontal">
+                <form:errors path="*" cssClass="alert alert-danger" element="div"/>
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <form:input id="firstName" path="firstName" type="text" class="form-control" placeholder="First Name" value="${userToUpdate.firstName}"/>
+					<form:errors path="firstName" cssClass="text-danger"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <form:input id="lastName" path="lastName" type="text" class="form-control" placeholder="Last Name" value="${userToUpdate.lastName}"/>
+					<form:errors path="lastName" cssClass="text-danger"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <form:input id="email" path="email" type="text" class="form-control" placeholder="Email" value="${userToUpdate.email}"/>
+					<form:errors path="email" cssClass="text-danger"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="userName">User Name</label>
+                    <form:input id="userName" path="userCredentials.userName" type="text" class="form-control" placeholder="User Name" value="${userToUpdate.userCredentials.userName}"/>
+					<form:errors path="userCredentials.userName" cssClass="text-danger"/>
+                  </div>
+                  <c:if test="${userToUpdate.firstName == null}">
+                  <div class="form-group">
+                  	<label for="password">Password</label>
+                  	<form:password id="password" path="userCredentials.password"  class="form-control" value="${userToUpdate.userCredentials.password}"/>
+					<form:errors path="userCredentials.password" cssClass="text-danger"/>
+                  </div>
+                  
+                
+                  <div class="form-group">
+                  	<label for="confirmPassword">Confirm Password</label>
+                  	<form:password id="confirmPassword"  path="userCredentials.verifyPassword"  class="form-control" value="${userToUpdate.userCredentials.password}"/>
+					<form:errors path="userCredentials.verifyPassword" cssClass="text-danger"/>
+                  </div>
+                  <form:hidden  path="userCredentials.authority[0].authority"  value="ROLE_USER"/>
+                  <form:hidden path="userCredentials.enabled" value="TRUE"  />
+                  
+                   <button type="submit" class="btn btn-primary">Save</button>
+                   
+                    </c:if>
+                 
+                </form:form>
 
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="firstName">First Name</label>
-					<div class="col-lg-10">
-						<form:input id="firstName" path="firstName" type="text" class="form:input-large"/>
-						<form:errors path="firstName" cssClass="text-danger"/>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="lastName">Last Name</label>
-					<div class="col-lg-10">
-						<form:input id="lastName" path="lastName" type="text" class="form:input-large"/>
-						<form:errors path="lastName" cssClass="text-danger"/>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="age">Email</label>
-					<div class="col-lg-10">
-						<form:input id="email" path="email" type="text" class="form:input-large"/>
-						<form:errors path="email" cssClass="text-danger"/>
-					</div>
-				</div>
-
- 
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="userName">User Name</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="userName" path="userCredentials.userName" type="text" class="form:input-large"/>
-							<form:errors path="userCredentials.userName" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-
-	
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="password">Password</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:password id="password" path="userCredentials.password"  class="form:input-large"/>
-							<form:errors path="userCredentials.password" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-
-	
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="verifyPassword">Verify Password</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:password  path="userCredentials.verifyPassword"  class="form:input-large"/>
-							<form:errors path="userCredentials.verifyPassword" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-
-					<div class="form-group">
-					<label class="control-label col-lg-2" for="authority">Role</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input  path="userCredentials.authority[0].authority" type="text" value="ROLE_USER" class="form:input-large"/>
-							<form:errors path="userCredentials.authority[0].authority" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
- 
- 							<form:hidden path="userCredentials.enabled" value="TRUE"  />
- 
-
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
-					</div>
-				</div>
-				
-			</fieldset>
-		</form:form>
-	</section>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-3"></div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!-- container section end -->
+  <jsp:include page="partials/foot.jsp"></jsp:include>
 </body>
 </html>
