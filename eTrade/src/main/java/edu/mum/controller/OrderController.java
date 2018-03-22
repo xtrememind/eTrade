@@ -21,13 +21,14 @@ import edu.mum.domain.CashTransaction;
 import edu.mum.domain.Client;
 import edu.mum.domain.Order;
 import edu.mum.domain.Stock;
+import edu.mum.service.CashTransactionService;
 import edu.mum.service.ClientService;
 import edu.mum.service.OrderService;
 import edu.mum.service.StockService;
 import edu.mum.service.UserService;
 
 @Controller
-@RequestMapping("/orders")
+@RequestMapping("/orders") 
 public class OrderController {
 	
 	@Autowired
@@ -71,23 +72,19 @@ public class OrderController {
 			return "addOrder";
 		}
 		Client buyer = clientService.findOne(orderToBeAdded.getBuyerClient().getId());
-		CashTransaction cashTransaction = new CashTransaction();
-		cashTransaction.setCashAccount(buyer.getCashAccount());
-		cashTransaction.setAmount(10.0);
-		cashTransaction.setDate(new Date());
-//		Client seller = clientService.findOne(orderToBeAdded.getSellerClient().getId());
-//		Stock stock = stockService.findOne(orderToBeAdded.getStock().getId());
-//		orderToBeAdded.setBuyerClient(buyer);
-//		orderToBeAdded.setSellerClient(seller);
-//		orderToBeAdded.setStock(stock);
-//		orderToBeAdded.setDate(new Date());
-//		orderToBeAdded.setBuyerBrokerFees(buyer.getPortfolio().getBrokerFees());
-//		orderToBeAdded.setBuyerMarketFees(buyer.getPortfolio().getMarketFees());
-//		orderToBeAdded.setBuyerOrderAmount(orderToBeAdded.getQuantity() * orderToBeAdded.getPrice());
-//		orderToBeAdded.setSellerBrokerFees(seller.getPortfolio().getBrokerFees());
-//		orderToBeAdded.setSellerMarketFees(seller.getPortfolio().getMarketFees());
-//		orderToBeAdded.setSellerOrderAmount(orderToBeAdded.getQuantity() * orderToBeAdded.getPrice());
-//		orderToBeAdded.setUser(userService.findOne(1));
+		Client seller = clientService.findOne(orderToBeAdded.getSellerClient().getId());
+		Stock stock = stockService.findOne(orderToBeAdded.getStock().getId());
+		orderToBeAdded.setBuyerClient(buyer);
+		orderToBeAdded.setSellerClient(seller);
+		orderToBeAdded.setStock(stock);
+		orderToBeAdded.setDate(new Date());
+		orderToBeAdded.setBuyerBrokerFees(buyer.getPortfolio().getBrokerFees());
+		orderToBeAdded.setBuyerMarketFees(buyer.getPortfolio().getMarketFees());
+		orderToBeAdded.setBuyerOrderAmount(orderToBeAdded.getQuantity() * orderToBeAdded.getPrice());
+		orderToBeAdded.setSellerBrokerFees(seller.getPortfolio().getBrokerFees());
+		orderToBeAdded.setSellerMarketFees(seller.getPortfolio().getMarketFees());
+		orderToBeAdded.setSellerOrderAmount(orderToBeAdded.getQuantity() * orderToBeAdded.getPrice());
+		orderToBeAdded.setUser(userService.findOne(1));
 		orderService.save(orderToBeAdded);
 
 		
