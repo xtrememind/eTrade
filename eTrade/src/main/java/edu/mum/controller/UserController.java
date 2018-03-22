@@ -1,5 +1,7 @@
 package edu.mum.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +30,17 @@ public class UserController {
 	}
 	
   	@RequestMapping("/{id}")
-	public String getUserById(@PathVariable("id") Integer id,Model model) {
+	public String getUserById(@PathVariable("id") Integer id,Model model,@ModelAttribute("newUser") User newUse) {
 		User user = userService.findOne(id);
-		model.addAttribute("user", user);
-
- 		return "user";
+		model.addAttribute("userToUpdate", user);
+ 		return "addUser";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String getAddNewUserForm(@ModelAttribute("newUser") User newUser) {
 	   return "addUser";
 	}
+	
 	   
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String processAddNewUserForm(@ModelAttribute("newUser") @Valid User userToBeAdded, BindingResult result) {
