@@ -11,30 +11,36 @@
                           <span>Dashboard</span>
                       </a>
           </li>
-          <li class="${param.selected == 'employee' ? 'active' : '' }">
-          <a class="" href='<spring:url value="/users"/>'>
-                          <i class="icon_briefcase"></i>
-                          <span>Employees</span>
-                      </a>
-          </li>
+          <c:if test="${!(user.userCredentials.authority[0].authority == 'ROLE_USER')}">
+	          <li class="${param.selected == 'employee' ? 'active' : '' }">
+	          <a class="" href='<spring:url value="/users"/>'>
+                      <i class="icon_briefcase"></i>
+                      <span>Employees</span>
+	           </a>
+	          </li>
+         </c:if>
+         <c:if test="${!(user.userCredentials.authority[0].authority == 'ROLE_USER')}">
           <li class="${param.selected == 'customer' ? 'active' : '' }">
             <a class="" href='<spring:url value="/clients"/>'>
                   <i class="icon_group"></i>
                   <span>Customers</span>
             </a>
           </li>
+          </c:if>
           <li class="${param.selected == 'order' ? 'active' : '' }">
             <a class="" href='<spring:url value="/orders"/>'>
                   <i class="fa fa-exchange"></i>
                   <span>Orders</span>
             </a> 
           </li>
+          <c:if test="${!(user.userCredentials.authority[0].authority == 'ROLE_USER')}">
           <li class="${param.selected == 'stock' ? 'active' : '' }">
             <a class="" href='<spring:url value="/stocks"/>'>
                   <i class="icon_cart_alt"></i>
                   <span>Stocks</span>
             </a>
           </li>
+          </c:if>
           <li class="${param.selected == 'account' ? 'active' : '' }">
             <a class="" href='<spring:url value="/accounts"/>'>
                   <i class="icon_currency_alt"></i>
