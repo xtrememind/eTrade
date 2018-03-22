@@ -41,5 +41,22 @@
 	    		<mvc:exclude-mapping path="/resource/**"/>
 	    		<bean id="securityInterceptor" class="edu.mum.interceptor.SecurityInterceptor"/>
 		</mvc:interceptor>
+		<mvc:interceptor>
+	    		<mvc:mapping path="/**"/>
+	    		<mvc:exclude-mapping path="/login"/>
+	    		<mvc:exclude-mapping path="/postLogin"/>
+	    		<mvc:exclude-mapping path="/loginfailed"/>
+	    		<mvc:exclude-mapping path="/logout"/>
+	    		<mvc:exclude-mapping path="/resource/**"/>
+	    		<mvc:exclude-mapping path="/orders/**"/>
+	    		<mvc:exclude-mapping path="/index"/>
+	    		<mvc:exclude-mapping path="/access403"/>
+	    		<mvc:exclude-mapping path="/"/>
+	    		<mvc:exclude-mapping path="/clients"/>
+	    		<mvc:exclude-mapping path="/cashAccounts/**"/>
+	    		<mvc:exclude-mapping path="/cashTransactions/**"/>
+	    		<mvc:exclude-mapping path="/accounts/**"/>
+	    		<bean id="authorizationInterceptor" class="edu.mum.interceptor.AuthorizationInterceptor"/>
+		</mvc:interceptor>
 	</mvc:interceptors>
   </beans>
