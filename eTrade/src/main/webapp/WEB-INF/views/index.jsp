@@ -12,10 +12,8 @@
   <!-- container section start -->
   <section id="container" class="">
     <!--header start-->
-
-    
+    <jsp:include page="partials/header.jsp"></jsp:include>
     <!--header end-->
-		<jsp:include page="partials/header.jsp"></jsp:include>
     <!--sidebar start-->
 	<jsp:include page="partials/sidebar.jsp">
         <jsp:param name="selected" value="home" />
@@ -27,9 +25,9 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i> Dashboard</h3>
+            <h3 class="page-header"><i class="fa fa fa-bars"></i>Dashboard</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
               <li><i class="fa fa-bars"></i>Dashboard</li>
             </ol>
           </div>
