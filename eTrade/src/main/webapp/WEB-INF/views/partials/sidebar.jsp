@@ -6,37 +6,37 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="${param.selected == 'home' ? 'active' : '' }">
-            <a class="" href='<spring:url value="index"/>'>
+            <a class="" href='<spring:url value="/index"/>'>
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
           </li>
           <li class="${param.selected == 'employee' ? 'active' : '' }">
-          <a class="" href='<spring:url value="users"/>'>
+          <a class="" href='<spring:url value="/users"/>'>
                           <i class="icon_briefcase"></i>
                           <span>Employees</span>
                       </a>
           </li>
           <li class="${param.selected == 'customer' ? 'active' : '' }">
-            <a class="" href='<spring:url value="clients"/>'>
+            <a class="" href='<spring:url value="/clients"/>'>
                   <i class="icon_group"></i>
                   <span>Customers</span>
             </a>
           </li>
           <li class="${param.selected == 'order' ? 'active' : '' }">
-            <a class="" href='<spring:url value="orders"/>'>
-                  <i class="icon_group"></i>
+            <a class="" href='<spring:url value="/orders"/>'>
+                  <i class="fa fa-exchange"></i>
                   <span>Orders</span>
-            </a>
+            </a> 
           </li>
           <li class="${param.selected == 'stock' ? 'active' : '' }">
-            <a class="" href='<spring:url value="stocks"/>'>
+            <a class="" href='<spring:url value="/stocks"/>'>
                   <i class="icon_cart_alt"></i>
                   <span>Stocks</span>
             </a>
           </li>
           <li class="${param.selected == 'account' ? 'active' : '' }">
-            <a class="" href='<spring:url value="accounts"/>'>
+            <a class="" href='<spring:url value="/accounts"/>'>
                   <i class="icon_currency_alt"></i>
                   <span>Accounts</span>
             </a>
