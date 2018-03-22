@@ -43,18 +43,12 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="balance">Balance</label>
 					<div class="col-lg-10">
-						<form:input id="balance" path="balance" value="${client.cashAccount.balance}" type="text" class="form:input-large"/>
+						<form:input id="balance" path="balance" value="${client.cashAccount.balance}" readonly="true" type="text" class="form:input-large"/>
 						<form:errors path="cashAccount.balance" cssClass="text-danger"/>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="balance">Balance</label>
-					<div class="col-lg-10">
-						<form:input id="balance" path="cashAccount.balance" value="${client.cashAccount.balance}" type="text" class="form:input-large"/>
-						<form:errors path="cashAccount.balance" cssClass="text-danger"/>
-					</div>
-				</div>
+				
 
  
 				<div class="form-group">
@@ -71,7 +65,7 @@
 					<label class="control-label col-lg-2" for="description">Account</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="cashAccount" path="cashAccount.id" type="text" value="${client.cashAccount.id}" class="form:input-large"/>
+							<form:input id="cashAccount" path="cashAccount.id" type="text" value="${client.cashAccount.id}" readonly="true" class="form:input-large"/>
 							<form:errors path="cashAccount" cssClass="text-danger"/>
 						</div>
 					</div>
