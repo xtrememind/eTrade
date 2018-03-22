@@ -60,7 +60,7 @@
                     <td>
                       <div class="btn-group">
              
-                <a href="<spring:url value="/stocks/${stock.id}" />" class="btn btn-primary  btn-mini  "> <i class="icon_plus_alt2"></i> </a>
+                <a href="#" class="btn btn-primary  btn-mini  "> <i class="icon_plus_alt2"></i> </a>
                <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
                       </div>
                     </td>
