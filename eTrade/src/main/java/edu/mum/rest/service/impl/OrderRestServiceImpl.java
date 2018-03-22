@@ -33,7 +33,7 @@ public class OrderRestServiceImpl implements OrderRestService {
 	public Order save(Order order) {
 		RestTemplate restTemplate = remoteApi.getRestTemplate();
 		HttpEntity<Order> httpEntity = new HttpEntity<Order>(order, remoteApi.getHttpHeaders());
-		restTemplate.postForObject("http://172.19.141.181:8080/eTradeREST/orders/add/", httpEntity, Order.class);
+		restTemplate.postForObject("http://localhost:8080/eTradeREST/orders/add/", httpEntity, Order.class);
 		return null;
 	}
 
