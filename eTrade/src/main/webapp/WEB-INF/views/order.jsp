@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +71,30 @@
           </div>
         </div>
         <!-- page start-->
-       
+	<section class="container">
+		<div class="row">
+ 				<div class="col-sm-12 col-md-4" style="padding-bottom: 15px">
+					<div class="thumbnail">
+ 						<div class="caption">
+							<h3>ID : ${order.id}</h3>
+							<h3>Stock : ${order.stock.name}</h3>
+							<h3>Quantity : ${order.quantity}</h3>
+							<h3>Price : ${order.price}</h3>
+							<h3>Date : <fmt:formatDate pattern="dd-MM-yyyy" value="${order.date}" /></h3>
+							<h3>Buyer : ${order.buyerClient.name}</h3>
+							<h3>Buyer Broker Fees: ${order.buyerBrokerFees}</h3>
+							<h3>Buyer Market Fees: ${order.buyerMarketFees}</h3>
+							<h3>Buyer Order Amount: ${order.buyerOrderAmount}</h3>
+							<h3>Seller : ${order.sellerClient.name}</h3>
+							<h3>Seller Broker Fees: ${order.sellerBrokerFees}</h3>
+							<h3>Seller Market Fees: ${order.sellerMarketFees}</h3>
+							<h3>Seller Order Amount: ${order.sellerOrderAmount}</h3>
+							<h3>Created by: ${order.user.firstName} ${order.user.lastName}</h3>
+						</div>
+					</div>
+				</div>
+		</div>
+	</section>
         <!-- page end-->
       </section>
     </section>
