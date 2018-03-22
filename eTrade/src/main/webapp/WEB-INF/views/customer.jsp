@@ -97,10 +97,11 @@
                     <td> 2007-12-01</td>
                     <td>${client.cashAccount.balance}</td>
                     <td>${client.userCredentials.userName}</td>
+                    
                     <td>
                       <div class="btn-group">
              
-                <a href="<spring:url value="/clients/${client.id}" />" class="btn btn-primary  btn-mini  "> <i class="icon_plus_alt2"></i> </a>
+               <a href="<spring:url value="/cashTransactions/add/${client.id}" />" class="btn btn-primary  btn-mini  "> <i class="icon_plus_alt2"></i> </a>
                <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
                       </div>
                     </td>
