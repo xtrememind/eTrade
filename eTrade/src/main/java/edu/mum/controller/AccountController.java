@@ -19,8 +19,7 @@ import edu.mum.service.UserService;
 @RequestMapping("/accounts")
 public class AccountController {
 	
-	@Autowired
-	UserService userService;
+	
 	
 	@Autowired
 	ClientService clientService;
@@ -28,7 +27,7 @@ public class AccountController {
 	
 	@RequestMapping("")
 	public String list(Model model) {
-		model.addAttribute("customers", userService.findAll());
+		model.addAttribute("customers", clientService.findAll());
 		return "account";
 	}
 	
