@@ -18,7 +18,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id" , scope=CashAccount.class)
 public class CashAccount implements java.io.Serializable {
 
 	private Integer id;

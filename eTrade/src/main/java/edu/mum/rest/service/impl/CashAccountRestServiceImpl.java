@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import edu.mum.domain.CashAccount;
+import edu.mum.domain.CashTransaction;
 import edu.mum.rest.RemoteApi;
 import edu.mum.rest.service.CashAccountRestService;
 
@@ -34,6 +35,15 @@ public class CashAccountRestServiceImpl implements CashAccountRestService {
 		RestTemplate restTemplate = remoteApi.getRestTemplate();
 		HttpEntity<CashAccount> httpEntity = new HttpEntity<CashAccount>(cashAccount, remoteApi.getHttpHeaders());
 		restTemplate.postForObject("http://localhost:8080/eTradeREST/cashAccounts/add/", httpEntity, CashAccount.class);
+		return null;
+	}
+	
+	@Override
+	public CashAccount update(CashAccount cashAccount) {
+		
+		RestTemplate restTemplate = remoteApi.getRestTemplate();
+		HttpEntity<CashAccount> httpEntity = new HttpEntity<CashAccount>(cashAccount, remoteApi.getHttpHeaders());
+		restTemplate.postForObject("http://localhost:8080/eTradeREST/cashAccounts/update/", httpEntity, CashAccount.class);
 		return null;
 	}
 

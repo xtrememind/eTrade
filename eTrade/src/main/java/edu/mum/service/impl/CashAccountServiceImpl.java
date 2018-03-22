@@ -37,5 +37,11 @@ public class CashAccountServiceImpl implements edu.mum.service.CashAccountServic
 		return cashAccountRestService.findOne(id);
 	}
  
+ 	@Override
+	public CashAccount update(CashAccount cashAccount)  {
+		 
+		return cashAccountRestService.update(cashAccount);
+	}
+ 
 
 }

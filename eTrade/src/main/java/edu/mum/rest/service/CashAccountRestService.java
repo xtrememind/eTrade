@@ -14,5 +14,6 @@ public interface CashAccountRestService {
 	public CashAccount findOne(Integer index);
 
 	public CashAccount save(CashAccount cashAccount);
+	public CashAccount update(CashAccount cashAccount) ;
 
 }
