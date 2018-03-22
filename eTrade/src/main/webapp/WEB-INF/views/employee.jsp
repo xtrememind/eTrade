@@ -11,44 +11,8 @@
 <body>
   <!-- container section start -->
   <section id="container" class="">
-       <!--header start-->
-
-       <header class="header dark-bg">
-        <div class="toggle-nav">
-          <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-        </div>
-  
-        <!--logo start-->
-        <a href="index.html" class="logo">Best <span class="lite">Trade</span></a>
-        <!--logo end-->
-  
-        <div class="top-nav notification-row">
-          <!-- notificatoin dropdown start-->
-          <ul class="nav pull-right top-menu">
-            <!-- user login dropdown start-->
-            <li class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                              <span class="profile-ava">
-                                  <img alt="" src="img/man.png">
-                              </span>
-                              <span class="username">user</span>
-                              <b class="caret"></b>
-                          </a>
-              <ul class="dropdown-menu extended logout">
-                <div class="log-arrow-up"></div>
-                <li class="eborder-top">
-                  <a href="#"><i class="icon_profile"></i> My Profile</a>
-                </li>
-                <li>
-                  <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-                </li>
-              </ul>
-            </li>
-            <!-- user login dropdown end -->
-          </ul>
-          <!-- notificatoin dropdown end-->
-        </div>
-      </header>
+      <!--header start-->
+		<jsp:include page="partials/header.jsp"></jsp:include>
       <!--header end-->
     <!--sidebar start-->
 	<jsp:include page="partials/sidebar.jsp">
@@ -81,30 +45,27 @@
           <div class="col-lg-12">
             <section class="panel">
              
-              <table class="table table-striped table-advance table-hover">
-                <tbody>
-              
-                  <tr>
-                    <th><i class="icon_profile"></i> First Name</th>
-                    <th><i class="icon_calendar"> </i> </th>
-                    <th><i class="icon_mail_alt"></i> Last Name</th>
-                    <th><i class="icon_pin_alt"></i> email</th>
-                    <th><i class="icon_mobile"></i> Rank</th>
+              <table id="myTable" class="table table-striped table-advance table-hover" data-type="employee">
+              <thead>
+              </thead>
+               <tr>
+               <th><i class="icon_profile"></i> First Name</th>
+                    <th><i class="icon_profile"></i> Last Name</th>
+                    <th><i class="icon_mail_alt"></i> Email</th>
                     <th><i class="icon_cogs"></i> Action</th>
+                </tr>
+                <tbody>
                   </tr>
                     <c:forEach items="${users}" var="user">
                   <tr>
                     <td>${user.firstName}</td>
-                    <td> 2007-12-01</td>
                     <td>${user.lastName}</td>
                     <td>${user.email}</td>
-                    <td>${user.ranking}</td>
                     <td>
                       <div class="btn-group">
-             
-                <a href="<spring:url value="/users/${user.id}" />" class="btn btn-primary  btn-mini  "> <i class="icon_plus_alt2"></i> </a>
-               <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                      </div>
+                	  <a href="<spring:url value="/users/${user.id}" />" class="btn btn-primary  btn-mini  "> <i class="icon_pencil-edit"></i> </a>
+               		  <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                    </div>
                     </td>
                   </tr>
                   </c:forEach>
@@ -123,7 +84,10 @@
   </section>
   <!-- container section end -->
  <jsp:include page="partials/foot.jsp"></jsp:include>
-
+<%-- <script src="<spring:url value="/resource/datatables/js/jquery.dataTables.min.js"/>"></script>  --%>
+<%-- <script src="<spring:url value="/resource/datatables-plugins/dataTables.bootstrap.js"/>"></script>  --%>
+<%-- <script src="<spring:url value="/resource/datatables-responsive/dataTables.responsive.js"/>"></script>  --%>
+<%-- <script src="<spring:url value="/resource/dataTableCustomJs/myJsDataTable.js"/>"></script>  --%>
 
 </body>
 
