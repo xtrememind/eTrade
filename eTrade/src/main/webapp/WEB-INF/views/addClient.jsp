@@ -1,82 +1,92 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-<html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Client</title>
+  <jsp:include page="partials/head.jsp"></jsp:include>
+  <title>Add New Client</title>
 </head>
 <body>
-	<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Valued Client</h1>
-				<p>Add a new one<p>
-			</div>
-		</div>
-	</section>
-	<section class="container">
-		<form:form  modelAttribute="newClient" class="form-horizontal"  >
-			<fieldset>
-				<legend>Add new Client</legend>
-
-				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
+  <!-- container section start -->
+  <section id="container" class="">
+    <!--header start-->
+    <jsp:include page="partials/header.jsp"></jsp:include>
+    <!--header end-->
+    <!--sidebar start-->
+	<jsp:include page="partials/sidebar.jsp">
+        <jsp:param name="selected" value="customer" />
+    </jsp:include>
+    <!--sidebar end-->
+     <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa fa-bars"></i>Add New Client</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
+              <li><i class="fa fa-bars"></i>Add New Client</li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+         <div class="row">
+        	<div class="col-lg-3"></div>
+        	<div class="col-lg-6">
+            <section class="panel">
+              <header class="panel-heading">
+              	Add new client
+              </header>
+              <div class="panel-body" style="padding: 30px;">
+			  <form:form  modelAttribute="newClient" class="form-horizontal"  >
+			  <form:errors path="*" cssClass="alert alert-danger" element="div"/>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="name">Name</label>
-					<div class="col-lg-10">
-						<form:input id="name" path="name" type="text" class="form:input-large"/>
-						<form:errors path="name" cssClass="text-danger"/>
-					</div>
+					<label for="name">Name</label>
+					<form:input id="name" path="name" type="text" class="form-control"/>
+					<form:errors path="name" cssClass="text-danger"/>
 				</div>
  
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="userName">User Name</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="userName" path="userCredentials.userName" type="text" class="form:input-large"/>
-							<form:errors path="userCredentials.userName" cssClass="text-danger"/>
-						</div>
-					</div>
+					<label for="userName">User Name</label>
+					<form:input id="userName" path="userCredentials.userName" type="text" class="form-control"/>
+					<form:errors path="userCredentials.userName" cssClass="text-danger"/>
 				</div>
 
+				<div class="form-group">
+					<label for="password">Password</label>
+					<form:password id="password" path="userCredentials.password"  class="form-control"/>
+					<form:errors path="userCredentials.password" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<label for="verifyPassword">Verify Password</label>
+					<form:password id="verifyPassword"  path="userCredentials.verifyPassword"  class="form-control"/>
+					<form:errors path="userCredentials.verifyPassword" cssClass="text-danger"/>
+				</div>
+ 				<form:hidden path="userCredentials.enabled" value="TRUE"  />
+				<div class="form-group">
+					<input type="submit" id="btnAdd" class="btn btn-primary" value ="Save"/>
+				</div>
 	
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="password">Password</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:password id="password" path="userCredentials.password"  class="form:input-large"/>
-							<form:errors path="userCredentials.password" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-
-	
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="verifyPassword">Verify Password</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:password  path="userCredentials.verifyPassword"  class="form:input-large"/>
-							<form:errors path="userCredentials.verifyPassword" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-
-					
- 
- 							<form:hidden path="userCredentials.enabled" value="TRUE"  />
- 
-
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
-					</div>
-				</div>
-				
-			</fieldset>
 		</form:form>
-	</section>
+		
+		</div>
+		
+		</section>
+		</div>
+		
+		</div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!-- container section end -->
+ <jsp:include page="partials/foot.jsp"></jsp:include>
+
+
 </body>
+
 </html>
+		
