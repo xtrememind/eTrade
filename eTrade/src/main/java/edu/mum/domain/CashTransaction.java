@@ -13,7 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -27,17 +32,23 @@ import javafx.beans.property.StringProperty;
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id", scope = CashTransaction.class)
 public class CashTransaction implements java.io.Serializable {
 
+	// the id 
 	private Integer id;
 	
+	@NotNull (message="{date.message}")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	
-	private Double amount;
+	@NotNull (message="{amount.message}")
+	@Min(value=1000 , message="{amount.message}")
+     private Double amount;
 	
 	private double balance;
 	
-	private String description;
+	@NotEmpty(message="{description.message}")
+     private String description;
 	
+	@Valid
 	private CashAccount cashAccount;
 
 

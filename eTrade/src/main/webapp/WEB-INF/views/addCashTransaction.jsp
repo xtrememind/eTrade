@@ -27,7 +27,7 @@
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
               <li><i class="fa fa-bars"></i><a href="<spring:url value="/clients"/>">Customers</a></li>
-              <li><i class="fa fa-bars"></i>Add Cash Transaction</li>
+              <li><i class="fa fa-bars"></i>Add New  Cash </li>
             </ol>
           </div>
         </div>
@@ -79,7 +79,7 @@
 		</section>
 		</div>
 		</div>
-        <!-- page end-->
+        <!-- page end fisin-->
       </section>
     </section>
     <!--main content end-->

@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id" , scope=CashAccount.class)
 public class CashAccount implements java.io.Serializable {
 
+	// the id
 	private Integer id;
     
 	private double balance;
@@ -52,8 +53,8 @@ public class CashAccount implements java.io.Serializable {
 		return client;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClient(Client clien) {
+		this.client = clien;
 	}
 
 }

@@ -59,8 +59,13 @@ public class CashTransactionController {
 	public String processAddNewStockForm(@ModelAttribute("newCashTransaction") @Valid CashTransaction cashTransactionToBeAdded, BindingResult result) {
 		
 		/*cashTransactionToBeAdded.getCashAccount().getId()*/
+       if(result.hasErrors()) {
+			
+			return "addCashTransaction";
+		}
+
 		CashAccount cash = cashAccountService.findOne(cashTransactionToBeAdded.getCashAccount().getId());
-		
+	
 		cash.setBalance(cash.getBalance()+ cashTransactionToBeAdded.getAmount() );
 		cashTransactionToBeAdded.setCashAccount(cash);
 		
@@ -72,10 +77,7 @@ public class CashTransactionController {
 				 +cashTransactionToBeAdded.getAmount()) ;
 		cashAccountService.update(cash);		
 		
-		if(result.hasErrors()) {
-			
-			return "addCashTransaction";
-		}
+		
 
  		try {
  			cashTransactionService.save(cashTransactionToBeAdded);
