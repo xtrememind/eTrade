@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -26,6 +28,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Client implements java.io.Serializable {
 
 	private Integer id;
+	@NotEmpty (message="{name.message}}")
 	@Size(min=4, max = 19, message= "{Size.name}")
 	private String name;
     
@@ -33,7 +36,7 @@ public class Client implements java.io.Serializable {
 	
 	private CashAccount cashAccount;
 
-	
+	@Valid
 	private UserCredentials userCredentials;
 	
 	
@@ -79,6 +82,4 @@ public class Client implements java.io.Serializable {
 	public void setUserCredentials(UserCredentials userCredentials) {
 		this.userCredentials = userCredentials;
 	}
-
-
 }

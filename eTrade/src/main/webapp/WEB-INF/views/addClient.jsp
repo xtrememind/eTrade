@@ -26,7 +26,6 @@
             <h3 class="page-header"><i class="fa fa fa-bars"></i>Add New Client</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="<spring:url value="/index"/>">Home</a></li>
-              <li><i class="fa fa-bars"></i><a href="<spring:url value="/clients"/>">Clients</a></li>
               <li><i class="fa fa-bars"></i>Add New Client</li>
             </ol>
           </div>
