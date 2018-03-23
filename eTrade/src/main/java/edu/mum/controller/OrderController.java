@@ -67,9 +67,17 @@ public class OrderController {
 	}
 	   
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddNewOrderForm(@ModelAttribute("newOrder") @Valid Order orderToBeAdded, BindingResult result) {
+	public String processAddNewOrderForm(@ModelAttribute("newOrder") @Valid Order orderToBeAdded, BindingResult result ,Model model) {
 		if(result.hasErrors()) {
-			return "addOrder";
+			 //ModelAndView mav = new ModelAndView("addOrder");
+		        Map<Integer,String> stockMap = new HashMap<Integer,String>();
+		        for (Stock stock : stockService.findAll()) stockMap.put(stock.getId(),stock.getName());
+		        model.addAttribute("stocks",stockMap);
+		        Map<Integer,String> clientMap = new HashMap<Integer,String>();
+		        for (Client client : clientService.findAll()) clientMap.put(client.getId(),client.getName());
+		        model.addAttribute("clients", clientMap);
+		        return "addOrder";
+			//return "addOrder";
 		}
 		Client buyer = clientService.findOne(orderToBeAdded.getBuyerClient().getId());
 		Client seller = clientService.findOne(orderToBeAdded.getSellerClient().getId());

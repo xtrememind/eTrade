@@ -13,6 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -24,8 +29,11 @@ public class Order implements java.io.Serializable {
 
 	private Date date;
 	
+	@NotNull (message="{quanity.message}")
+	@Min(value=1 , message="{min.quantity}")
 	private int quantity;
-	
+	@NotNull (message="{price.message}")
+	@Min(value=1 , message="{min.price}")
 	private double price;
 	
 	private double buyerBrokerFees;
@@ -40,7 +48,9 @@ public class Order implements java.io.Serializable {
 	
 	private double sellerOrderAmount;
 	
+	
 	private Client buyerClient;
+	
 	
 	private Client sellerClient;
 	
