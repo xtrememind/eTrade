@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -16,8 +19,12 @@ public class Stock implements java.io.Serializable {
 
 	private Integer id;
     
+	@NotEmpty (message="{stok.name.empty}")
+	@Size(min=2 , max=20 , message="{stok.name.message}")
 	private String name;
     
+	@NotEmpty (message="{stok.code.empty}")
+	@Size(min=2 , max=20 , message="{stok.code.message}")
 	private String code;
 
 	public Stock() {
